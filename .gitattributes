@@ -1,0 +1,2 @@
+# Preserve BEAST XML files byte-for-byte across platforms.
+*.xml -text
