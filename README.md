@@ -1,4 +1,4 @@
-# Measles genomic epidemiology: Cell manuscript revision
+# Global measles genomic epidemiology: In revision for Cell
 
 This repository collects major analysis code, figure inputs, and BEAST XML configurations supporting the Cell manuscript revision.
 
