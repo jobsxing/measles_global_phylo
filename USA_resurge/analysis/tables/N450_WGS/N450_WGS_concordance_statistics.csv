@@ -1,0 +1,86 @@
+﻿block,statistic,value,note
+input,N450_cap1_n_trees,192,1190 sequences
+input,N450_cap1_imports_per_tree_mean,68.79,
+input,N450_cap2_n_trees,613,1636 sequences
+input,N450_cap2_imports_per_tree_mean,103.69,
+input,N450_cap3_n_trees,174,2015 sequences
+input,N450_cap3_imports_per_tree_mean,156.31,
+input,WGS_n_trees,877,2284 sequences
+input,WGS_imports_per_tree_mean,39.56,
+input,window,2018-01..2026-06,102 months
+bin_scan,k=1m_rho_phase_median,0.671,"nbins=102, phase range 0.000 [0.671, 0.671]"
+bin_scan,k=1m_CCC_phase_median,0.377,"phase range [0.377, 0.377]"
+bin_scan,k=2m_rho_phase_median,0.692,"nbins=50, phase range 0.005 [0.690, 0.695]"
+bin_scan,k=2m_CCC_phase_median,0.417,"phase range [0.391, 0.443]"
+bin_scan,k=3m_rho_phase_median,0.703,"nbins=33, phase range 0.049 [0.675, 0.724]"
+bin_scan,k=3m_CCC_phase_median,0.477,"phase range [0.379, 0.505]"
+bin_scan,k=4m_rho_phase_median,0.722,"nbins=25, phase range 0.014 [0.714, 0.728]"
+bin_scan,k=4m_CCC_phase_median,0.509,"phase range [0.426, 0.524]"
+bin_scan,k=6m_rho_phase_median,0.768,"nbins=16, phase range 0.099 [0.699, 0.797]"
+bin_scan,k=6m_CCC_phase_median,0.594,"phase range [0.424, 0.656]"
+bin_scan,k=8m_rho_phase_median,0.769,"nbins=12, phase range 0.157 [0.706, 0.864]"
+bin_scan,k=8m_CCC_phase_median,0.62,"phase range [0.460, 0.756]"
+bin_scan,k=12m_rho_phase_median,0.857,"nbins=8, phase range 0.417 [0.548, 0.964]"
+bin_scan,k=12m_CCC_phase_median,0.716,"phase range [0.586, 0.797]"
+bin_scan,selection_rule,coarsest k with rho phase range <= 0.1,"pre-specified, outcome-independent; argmax of rho deliberately not used"
+bin_scan,selected_bin_width_months,6,
+bin_scan,argmax_rho_bin_width_months,12,rho=0.857 but phase range 0.417; not used as primary
+bin_scan,selected_width_rho_phase_median,0.768,
+bin_scan,selected_width_maxT_p,0.025,"corrected for scanning k in [1, 2, 3, 4, 6, 8, 12] and all phase offsets"
+input,primary_bin_months,6,"17 bins, calendar-aligned (phase 0)"
+proportionality,c_overall_point,3.952,ratio of posterior-mean totals
+proportionality,c_overall_median_95CrI,"3.95 [3.39, 4.56]",per tree pair
+proportionality,SMA_slope_through_origin,2.736,
+proportionality,log2ratio_mean_over_bins,2.963,
+proportionality,log2ratio_monotone_drift_per_year,-0.2225,
+proportionality,log2ratio_monotone_drift_median_95CrI,"-0.115 [-0.256, 0.0233]",
+proportionality,log2ratio_monotone_drift_p,0.111,NOT sufficient evidence of proportionality: blind to non-monotone excursions
+proportionality,log2ratio_MannKendall_p,0.1082,
+wgs_usa_sampling,bins_with_zero_WGS_USA_genomes,11/17,
+wgs_usa_sampling,WGS_USA_sequences_total,1478,2018-19 62 (4.2%) | 2020-22 42 (2.8%) | 2023-24 12 (0.8%) | 2025-26 1362 (92.2%)
+wgs_usa_sampling,WGS_nonUSA_sequences_total,806,2018-19 361 (44.8%) | 2020-22 45 (5.6%) | 2023-24 279 (34.6%) | 2025-26 121 (15.0%)
+wgs_usa_sampling,N450_USA_sequences_total,622,2018-19 85 (13.7%) | 2020-22 52 (8.4%) | 2023-24 84 (13.5%) | 2025-26 401 (64.5%)
+wgs_usa_sampling,N450_nonUSA_sequences_total,1393,2018-19 687 (49.3%) | 2020-22 201 (14.4%) | 2023-24 356 (25.6%) | 2025-26 149 (10.7%)
+ratio_drivers,log2ratio_vs_WGS_USA_sequences,-0.654,Spearman p=0.0044
+ratio_drivers,log2ratio_vs_WGS_non-USA_sequences,-0.256,Spearman p=0.3208
+ratio_drivers,log2ratio_vs_N450_USA_sequences,-0.399,Spearman p=0.1131
+ratio_drivers,log2ratio_vs_N450_non-USA_sequences,-0.022,Spearman p=0.9330
+stratified_by_USA_sampling,c_WGS has USA genomes,"2.11 [1.62, 2.73]",6 bins; N450 55.8 vs WGS 26.5 per tree
+stratified_by_USA_sampling,c_no WGS USA genome,"7.74 [5.5, 11.6]",11 bins; N450 100.5 vs WGS 13.0 per tree
+stratified_by_USA_sampling,P(c_without_USA_genomes > c_with),1.0,1.0 = the ratio is set by US genome availability
+bland_altman,bias_log2,2.963,geometric-mean ratio 7.80-fold (vs total-ratio c = 3.95)
+bland_altman,LoA_log2,"[-0.421, 6.346]","fold [0.75, 81.33]"
+bland_altman,proportional_bias_r,-0.498,p=0.0418; negative = ratio inflated where counts are low
+association,spearman_rho,0.699,monthly phase-randomised p=0.0090; circular-shift p=0.0260
+association,spearman_rho_median_95CrI,"0.599 [0.355, 0.783]",per tree pair
+association,pearson_r_log2,0.679,surrogate p=0.0085
+association,CCC_normalised_profiles,0.424,surrogate p=0.1109
+association,CCC_median_95CrI,"0.395 [0.21, 0.576]",per tree pair
+calibration,JSD_between_markers_median_95CrI,"0.232 [0.157, 0.326]",bits
+calibration,JSD_within_N450_median_95CrI,"0.0242 [0.00982, 0.0462]",bits
+calibration,JSD_within_WGS_median_95CrI,"0.0812 [0.0275, 0.157]",bits
+calibration,P(between > within_WGS),0.997,0.5 = indistinguishable from posterior noise; 1.0 = strict identity rejected
+calibration,JSD_posterior_mean_profiles,0.1632,
+invasion_time,KS_between_markers_median_95CrI,"0.209 [0.151, 0.272]",
+invasion_time,KS_within_N450_median_95CrI,"0.0595 [0.0355, 0.101]",
+invasion_time,KS_within_WGS_median_95CrI,"0.114 [0.0685, 0.194]",
+invasion_time,Wasserstein_between_markers_years,"0.579 [0.407, 0.812]",
+invasion_time,Wasserstein_within_N450_years,"0.166 [0.0831, 0.429]",
+invasion_time,KS_posterior_median_ECDFs,0.2042,
+timing,CCF_peak_lag_months,3,positive = N450 later than WGS
+timing,CCF_peak_lag_median_95CrI,"0 [-12, 5]",per tree pair
+timing,CCF_at_lag0,0.464,
+timing,CCF_at_peak,0.499,
+cap_dose_response,cap1_spearman_median_95CrI,"0.17 [-0.157, 0.475]",1190 sequences
+cap_dose_response,cap1_CCC_median_95CrI,"0.0171 [-0.165, 0.24]",
+cap_dose_response,cap1_c_median_95CrI,"1.74 [1.32, 2.16]",
+cap_dose_response,cap1_trough_share_of_importations,30.1%,2020-2022
+cap_dose_response,cap2_spearman_median_95CrI,"0.482 [0.2, 0.726]",1636 sequences
+cap_dose_response,cap2_CCC_median_95CrI,"0.225 [0.036, 0.435]",
+cap_dose_response,cap2_c_median_95CrI,"2.62 [2.16, 3.14]",
+cap_dose_response,cap2_trough_share_of_importations,17.4%,2020-2022
+cap_dose_response,cap3_spearman_median_95CrI,"0.604 [0.362, 0.77]",2015 sequences
+cap_dose_response,cap3_CCC_median_95CrI,"0.397 [0.216, 0.566]",
+cap_dose_response,cap3_c_median_95CrI,"3.95 [3.42, 4.58]",
+cap_dose_response,cap3_trough_share_of_importations,10.3%,2020-2022
+cap_dose_response,WGS_trough_share_of_importations,3.8%,2020-2022

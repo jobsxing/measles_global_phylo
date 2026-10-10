@@ -1,0 +1,19 @@
+source_region,sink_region,n
+Europe eliminated,Europe eliminated,3
+Europe eliminated,Americas eliminated,8
+Asia eliminated,Europe eliminated,1
+Asia eliminated,Asia eliminated,6
+Asia eliminated,Americas eliminated,9
+Asia eliminated,Oceania eliminated,1
+Asia eliminated,Endemic region,1
+Americas eliminated,Americas eliminated,27
+Oceania eliminated,Americas eliminated,1
+Endemic region,Europe eliminated,3
+Endemic region,Asia eliminated,8
+Endemic region,Americas eliminated,19
+Endemic region,Oceania eliminated,1
+Unclassified,Europe eliminated,8
+Unclassified,Asia eliminated,5
+Unclassified,Americas eliminated,1
+Unclassified,Endemic region,1
+Unknown source,Americas eliminated,81

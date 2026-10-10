@@ -1,0 +1,10 @@
+﻿statistic,value,note
+spearman_rho,0.699,"6-month bins, posterior-mean series"
+surrogate_p,0.0105,"phase-randomised monthly WGS series, re-binned"
+scan_corrected_maxT_p,0.025,corrected for the bin-width/phase scan
+c_overall,3.952,ratio of totals
+c_US_genomes_present,2.105,6 bins
+c_no_US_genome,7.707,11 bins
+partial_r_ratio_vs_WGS_US_genomes,-0.566,"p=0.0179, N450 US sampling controlled"
+WGS_US_genomes,1478.0,in 23/102 months
+N450_US_sequences,622.0,in 76/102 months
